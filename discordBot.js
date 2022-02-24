@@ -66,17 +66,17 @@ client.on('message', msg => {
                 description: "Start and stop the queue from discord!",
                 fields: [{
                         name: "Position",
-                        value: `You are in position **${queueData.place}**.`
+                        value: `P: **${queueData.place}**.`
                     },
                     {
                         name: "ETA",
-                        value: `Estimated time until login: **${queueData.ETA}**`
+                        value: `ETA: **${queueData.ETA}**`
                     }
                 ],
                 timestamp: new Date(),
                 footer: {
                     icon_url: client.user.avatarURL,
-                    text: "Author: Surprisejedi"
+                    text: "Author: Smochort1, Original project by Surprisejedi"
                 }
             }
         });
@@ -92,22 +92,22 @@ client.on('message', msg => {
                 },
                 fields: [{
                         name: "Queue",
-                        value: `Queue is starting up. Allow 15 seconds to update.`
+                        value: `Starting queue. Allow 15 seconds to update.`
                     }
                 ],
                 timestamp: new Date(),
                 footer: {
                     icon_url: client.user.avatarURL,
-                    text: "Author: Surprisejedi"
+                    text: "Author: Surprisejedi/Smochort1"
                 }
             }
         });
-        setDiscordActivity("Starting queue.")
+        setDiscordActivity("Starting.")
         setTimeout(update, 5 * 1000);
     }
     if (msg.content === "stop") {
         http.get("http://localhost/stop")
-        setDiscordActivity("Not queueing.")
+        setDiscordActivity("Idle.")
         msg.channel.send({
             embed: {
                 color: 3447003,
@@ -117,13 +117,13 @@ client.on('message', msg => {
                 },
                 fields: [{
                         name: "Queue",
-                        value: `Queue is **stopped**.`
+                        value: `Queue **stopped**.`
                     }
                 ],
                 timestamp: new Date(),
                 footer: {
                     icon_url: client.user.avatarURL,
-                    text: "Author: Surprisejedi"
+                    text: "Author: Surprisejedi/Smochort1"
                 }
             }
         });
